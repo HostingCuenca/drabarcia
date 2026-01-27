@@ -2,10 +2,12 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import heroImg from "./heroimagen1.png";
+import heroImg from "./heroimagen.png";
+import heroMobile from "./heromovil.png";
 
 export default function Home() {
   const [selectedDuration, setSelectedDuration] = useState<"15min" | "30min">("30min");
+  const [menuOpen, setMenuOpen] = useState(false);
   const [waName, setWaName] = useState("");
   const [waPhone, setWaPhone] = useState("");
   const [waEmail, setWaEmail] = useState("");
@@ -13,6 +15,7 @@ export default function Home() {
   const [waTopic, setWaTopic] = useState("");
   const [waMessage, setWaMessage] = useState("");
   const [testimonialIndex, setTestimonialIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   const testimonials = [
     {
@@ -71,7 +74,16 @@ export default function Home() {
     },
   ];
 
-  const maxTestimonialIndex = testimonials.length - 2;
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  const visibleCount = isMobile ? 1 : 2;
+  const maxTestimonialIndex = testimonials.length - visibleCount;
+  const slidePercent = isMobile ? 100 : 50;
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -129,35 +141,85 @@ export default function Home() {
             </button>
           </div>
           {/* Mobile menu button */}
-          <button className="md:hidden text-[var(--warm-grey)]">
+          <button
+            className="md:hidden text-[var(--warm-grey)]"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              {menuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
             </svg>
           </button>
         </div>
+
+        {/* Mobile menu panel */}
+        {menuOpen && (
+          <div className="md:hidden bg-[var(--sand-beige)]/95 backdrop-blur-sm border-t border-[var(--olive-green)]/10 px-6 py-4 space-y-3">
+            <button
+              onClick={() => { scrollToSection("inicio"); setMenuOpen(false); }}
+              className="block w-full text-left text-[var(--warm-grey)] hover:text-[var(--olive-green)] transition-colors text-sm tracking-wide py-2"
+            >
+              Inicio
+            </button>
+            <button
+              onClick={() => { scrollToSection("sobre-mi"); setMenuOpen(false); }}
+              className="block w-full text-left text-[var(--warm-grey)] hover:text-[var(--olive-green)] transition-colors text-sm tracking-wide py-2"
+            >
+              Sobre Mí
+            </button>
+            <button
+              onClick={() => { scrollToSection("servicios"); setMenuOpen(false); }}
+              className="block w-full text-left text-[var(--warm-grey)] hover:text-[var(--olive-green)] transition-colors text-sm tracking-wide py-2"
+            >
+              Servicios
+            </button>
+            <button
+              onClick={() => { scrollToSection("contacto"); setMenuOpen(false); }}
+              className="block w-full text-left text-[var(--warm-grey)] hover:text-[var(--olive-green)] transition-colors text-sm tracking-wide py-2"
+            >
+              Contacto
+            </button>
+            <button
+              onClick={() => { scrollToSection("agendar"); setMenuOpen(false); }}
+              className="w-full bg-[var(--olive-green)] text-white py-3 rounded-full text-sm hover:bg-[var(--olive-green-hover)] transition-colors mt-2"
+            >
+              Agendar Cita
+            </button>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
-      <section id="inicio" className="relative min-h-screen flex items-center">
-        {/* Background Image */}
+      <section id="inicio" className="relative min-h-screen flex items-end pb-12 md:pb-0 md:items-center">
+        {/* Background Image — mobile: heromovil, desktop: heroimagen1 */}
         <div className="absolute inset-0 z-0">
+          <Image
+            src={heroMobile}
+            alt="Dra. Barcia - Psicóloga Clínica en su consultorio"
+            fill
+            sizes="100vw"
+            quality={100}
+            className="object-cover object-center md:hidden"
+            priority
+          />
           <Image
             src={heroImg}
             alt="Dra. Barcia - Psicóloga Clínica en su consultorio"
             fill
             sizes="100vw"
             quality={100}
-            className="object-cover object-center"
+            className="object-cover object-center hidden md:block"
             priority
           />
-          {/* Gradient overlay for text readability on left side */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#e8eaed]/95 via-[#e8eaed]/70 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#e8eaed]/95 via-[#e8eaed]/80 to-[#e8eaed]/40 md:bg-gradient-to-r md:from-[#e8eaed]/95 md:via-[#e8eaed]/70 md:to-transparent"></div>
         </div>
 
         {/* Content */}
         <div className="relative z-10 max-w-6xl mx-auto px-6 py-32 w-full">
           <div className="max-w-xl">
-            {/* Text Content positioned on the left */}
             <div className="space-y-6">
               <p className="text-[var(--moss-green)] text-sm tracking-widest uppercase font-medium">
                 Psicóloga Clínica
@@ -334,7 +396,7 @@ export default function Home() {
                 Completa tus datos y te responderé a la brevedad por WhatsApp.
               </p>
               <div className="space-y-5 flex-1 flex flex-col">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="wa-name" className="block text-sm text-[var(--warm-grey)] font-medium mb-2">
                       Nombre completo <span className="text-[var(--olive-green)]">*</span>
@@ -377,7 +439,7 @@ export default function Home() {
                     className="w-full px-4 py-3 rounded-xl border border-[var(--warm-grey-lighter)] bg-[var(--sand-beige)]/30 text-[var(--warm-grey)] placeholder:text-[var(--warm-grey-light)]/50 focus:outline-none focus:ring-2 focus:ring-[var(--olive-green)]/30 focus:border-[var(--olive-green)] transition-all"
                   />
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="wa-date" className="block text-sm text-[var(--warm-grey)] font-medium mb-2">
                       Fecha preferida
@@ -462,8 +524,8 @@ export default function Home() {
             </div>
 
             {/* Images Column — matches form height */}
-            <div className="relative grid grid-cols-2 gap-4 grid-rows-2">
-              <div className="rounded-2xl overflow-hidden relative min-h-0">
+            <div className="relative grid grid-cols-2 gap-3 md:gap-4 grid-rows-2 min-h-[320px] md:min-h-0">
+              <div className="rounded-2xl overflow-hidden relative">
                 <Image
                   src="/assets/WhatsApp%20Image%202026-01-16%20at%2009.02.26.jpeg"
                   alt="Consultorio de la Dra. Barcia"
@@ -473,7 +535,7 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <div className="rounded-2xl overflow-hidden relative min-h-0">
+              <div className="rounded-2xl overflow-hidden relative">
                 <Image
                   src="/assets/WhatsApp%20Image%202026-01-16%20at%2008.54.06.jpeg"
                   alt="Espacio de terapia"
@@ -483,7 +545,7 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <div className="rounded-2xl overflow-hidden relative min-h-0">
+              <div className="rounded-2xl overflow-hidden relative">
                 <Image
                   src="/assets/WhatsApp%20Image%202026-01-16%20at%2009.00.59%20(1).jpeg"
                   alt="Ambiente acogedor del consultorio"
@@ -493,7 +555,7 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <div className="rounded-2xl overflow-hidden relative min-h-0">
+              <div className="rounded-2xl overflow-hidden relative">
                 <Image
                   src="/assets/WhatsApp%20Image%202026-01-16%20at%2009.01.00.jpeg"
                   alt="Dra. Barcia en consulta"
@@ -505,8 +567,8 @@ export default function Home() {
               </div>
 
               {/* Floating mini card */}
-              <div className="absolute bottom-5 left-1/2 -translate-x-1/2 w-[80%] bg-white/80 backdrop-blur-md rounded-2xl px-5 py-3 shadow-lg border border-white/50">
-                <p className="text-[var(--warm-grey)] text-sm leading-relaxed text-center font-medium">
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 w-[90%] md:w-[80%] bg-white/80 backdrop-blur-md rounded-xl md:rounded-2xl px-4 py-2.5 md:px-5 md:py-3 shadow-lg border border-white/50">
+                <p className="text-[var(--warm-grey)] text-xs md:text-sm leading-relaxed text-center font-medium">
                   Un espacio seguro, cálido y libre de juicios donde podrás
                   explorar tus emociones con total confianza.
                 </p>
@@ -624,12 +686,12 @@ export default function Home() {
           <div className="overflow-hidden">
             <div
               className="flex transition-transform duration-700 ease-in-out"
-              style={{ transform: `translateX(-${testimonialIndex * 50}%)` }}
+              style={{ transform: `translateX(-${testimonialIndex * slidePercent}%)` }}
             >
               {testimonials.map((t, i) => (
                 <div
                   key={i}
-                  className="w-1/2 flex-shrink-0 px-4"
+                  className="w-full md:w-1/2 flex-shrink-0 px-2 md:px-4"
                 >
                   <div className="bg-[var(--cream)] p-8 rounded-3xl h-full flex flex-col">
                     <div className="flex gap-1 mb-4">
@@ -753,9 +815,9 @@ export default function Home() {
         href="https://wa.me/1234567890?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20sobre%20tus%20servicios."
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-[var(--olive-green)] text-white pl-5 pr-4 py-3 rounded-full shadow-lg hover:bg-[var(--olive-green-hover)] hover:shadow-xl transition-all group"
+        className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 md:w-auto md:h-auto md:pl-5 md:pr-4 md:py-3 bg-[var(--olive-green)] text-white rounded-full shadow-lg hover:bg-[var(--olive-green-hover)] hover:shadow-xl transition-all group"
       >
-        <span className="text-sm font-medium max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-[200px] transition-all duration-300">
+        <span className="hidden md:inline text-sm font-medium max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-[200px] group-hover:mr-3 transition-all duration-300">
           Estamos para ti
         </span>
         <svg className="w-6 h-6 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
