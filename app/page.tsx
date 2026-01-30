@@ -227,9 +227,8 @@ export default function Home() {
               <h1 className="font-[var(--font-playfair)] font-semibold text-4xl md:text-5xl lg:text-6xl text-[var(--warm-grey)] leading-tight">
                 Tu bienestar emocional es mi prioridad
               </h1>
-              <p className="text-[var(--warm-grey-light)] text-lg leading-relaxed max-w-md">
-                Te acompaño en tu proceso de autoconocimiento y crecimiento personal,
-                en un espacio seguro, cálido y libre de juicios.
+              <p className="text-[var(--warm-grey-light)] text-base md:text-lg leading-relaxed max-w-lg">
+                Te acompaño en un proceso de autoconocimiento y crecimiento personal, en un espacio seguro, cálido y sin juicios. La terapia es un camino de transformación: cada sesión te acerca a una vida más consciente, equilibrada y plena, promoviendo cambios reales y duraderos.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 mt-8">
@@ -278,20 +277,18 @@ export default function Home() {
               <h2 className="font-[var(--font-playfair)] font-semibold text-3xl md:text-4xl text-[var(--warm-grey)]">
                 Sobre Mí
               </h2>
-              <div className="space-y-4 text-[var(--warm-grey-light)] leading-relaxed">
+              <div className="space-y-4 text-[var(--warm-grey-light)] leading-relaxed text-sm md:text-base">
                 <p>
-                  Soy psicóloga clínica con más de 10 años de experiencia acompañando
-                  a personas en su camino hacia el bienestar emocional. Mi enfoque es
-                  humanista e integrativo, adaptándome a las necesidades únicas de cada persona.
+                  Soy psicóloga clínica, con más de 20 años de experiencia acompañando a personas en su camino hacia el bienestar emocional. A lo largo de mi trayectoria he tenido el privilegio de trabajar con muchas personas en distintos momentos de su vida, apoyándolas en procesos de cambio, sanación y crecimiento personal.
                 </p>
                 <p>
-                  Creo firmemente que cada uno de nosotros tiene la capacidad de sanar
-                  y crecer. Mi rol es facilitar ese proceso, ofreciendo un espacio
-                  de escucha genuina, empatía y herramientas prácticas.
+                  Mi enfoque es humanista e integrativo, lo que me permite adaptar diferentes herramientas terapéuticas a las necesidades únicas de cada persona, siempre desde un acompañamiento respetuoso, empático y personalizado. Creo firmemente que cada ser humano tiene la capacidad de sanar y crecer; mi rol como terapeuta es facilitar ese proceso, ofreciendo un espacio de escucha genuina, contención emocional y recursos prácticos que te ayuden a avanzar.
                 </p>
                 <p>
-                  Fuera del consultorio, disfruto de la jardinería y la compañía de
-                  mi gato Luna, quien a veces participa en las sesiones virtuales.
+                  La terapia es un espacio para comprenderte mejor, fortalecer tus recursos internos y generar cambios positivos y duraderos en tu vida.
+                </p>
+                <p>
+                  Fuera del consultorio, disfruto del contacto con la naturaleza y soy amante de los gatos, quienes en ocasiones también participan de las sesiones, aportando un ambiente aún más cercano y acogedor.
                 </p>
               </div>
               <div className="flex flex-wrap gap-4 pt-4">
@@ -313,62 +310,88 @@ export default function Home() {
       {/* Services Section */}
       <section id="servicios" className="py-24 bg-[var(--sand-beige)]">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <p className="text-[var(--moss-green)] text-sm tracking-widest uppercase mb-4">
               Cómo puedo ayudarte
             </p>
-            <h2 className="font-[var(--font-playfair)] font-semibold text-3xl md:text-4xl text-[var(--warm-grey)]">
+            <h2 className="font-[var(--font-playfair)] font-semibold text-3xl md:text-4xl text-[var(--warm-grey)] mb-6">
               Servicios
             </h2>
+            <p className="text-[var(--warm-grey-light)] max-w-3xl mx-auto leading-relaxed text-sm md:text-base">
+              Trabajo con sesiones presenciales y en modalidad online, ambas con la misma calidad y enfoque clínico. La diferencia de tarifa responde únicamente a la modalidad de atención, ya que la sesión online no implica costos de consultorio, manteniendo siempre el mismo acompañamiento terapéutico.
+            </p>
+            <p className="text-[var(--warm-grey-light)] max-w-3xl mx-auto leading-relaxed text-sm md:text-base mt-3">
+              Además, para favorecer la continuidad del proceso, cuento con paquetes mensuales de 4 sesiones, pensados para quienes desean un seguimiento más constante y un ajuste en el costo total.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Service Card 1 */}
-            <div className="bg-[var(--cream)] p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+            {/* Service Card 1 - Terapia Individual */}
+            <div className="bg-[var(--cream)] p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow flex flex-col">
               <div className="w-14 h-14 bg-[var(--moss-green)]/20 rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-7 h-7 text-[var(--olive-green)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
               </div>
-              <h3 className="font-[var(--font-playfair)] font-semibold text-xl text-[var(--warm-grey)] mb-3">
+              <h3 className="font-[var(--font-playfair)] font-semibold text-xl text-[var(--warm-grey)] mb-1">
                 Terapia Individual
               </h3>
-              <p className="text-[var(--warm-grey-light)] text-sm leading-relaxed">
-                Sesiones personalizadas para trabajar temas como ansiedad, depresión,
-                autoestima, duelo o cualquier dificultad emocional que estés atravesando.
+              <p className="text-[var(--moss-green)] text-sm font-medium mb-4">60 minutos</p>
+              <p className="text-[var(--warm-grey-light)] text-sm leading-relaxed flex-1">
+                La terapia individual es un espacio de confianza y acompañamiento, donde trabajamos de manera conjunta en tu bienestar emocional y desarrollo personal. A través del proceso terapéutico podrás comprender mejor tus emociones, pensamientos y comportamientos, así como identificar aquello que hoy te genera malestar.
               </p>
+              <div className="mt-6 pt-6 border-t border-[var(--sand-beige)]">
+                <p className="text-[var(--warm-grey)] font-semibold text-sm mb-2">Tarifas</p>
+                <div className="space-y-1 text-sm text-[var(--warm-grey-light)]">
+                  <p>Presencial: <span className="text-[var(--warm-grey)] font-medium">USD $80</span></p>
+                  <p>Online: <span className="text-[var(--warm-grey)] font-medium">USD $60</span></p>
+                  <p>Paquete mensual online (4 sesiones): <span className="text-[var(--warm-grey)] font-medium">USD $220</span></p>
+                </div>
+              </div>
             </div>
 
-            {/* Service Card 2 */}
-            <div className="bg-[var(--cream)] p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+            {/* Service Card 2 - Terapia de Pareja */}
+            <div className="bg-[var(--cream)] p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow flex flex-col">
               <div className="w-14 h-14 bg-[var(--moss-green)]/20 rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-7 h-7 text-[var(--olive-green)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
               </div>
-              <h3 className="font-[var(--font-playfair)] font-semibold text-xl text-[var(--warm-grey)] mb-3">
+              <h3 className="font-[var(--font-playfair)] font-semibold text-xl text-[var(--warm-grey)] mb-1">
                 Terapia de Pareja
               </h3>
-              <p className="text-[var(--warm-grey-light)] text-sm leading-relaxed">
-                Acompañamiento para parejas que buscan mejorar su comunicación,
-                resolver conflictos y fortalecer su vínculo afectivo.
+              <p className="text-[var(--moss-green)] text-sm font-medium mb-4">90 minutos</p>
+              <p className="text-[var(--warm-grey-light)] text-sm leading-relaxed flex-1">
+                Espacio terapéutico para parejas que quieran aprender a resolver sus conflictos, mejorar su comunicación, fortalecer su conexión emocional y, en definitiva, adquirir herramientas para conseguir una relación más sana y satisfactoria.
               </p>
+              <div className="mt-6 pt-6 border-t border-[var(--sand-beige)]">
+                <p className="text-[var(--warm-grey)] font-semibold text-sm mb-2">Tarifas</p>
+                <div className="space-y-1 text-sm text-[var(--warm-grey-light)]">
+                  <p>Presencial: <span className="text-[var(--warm-grey)] font-medium">USD $95</span></p>
+                  <p>Online: <span className="text-[var(--warm-grey)] font-medium">USD $75</span></p>
+                  <p>Paquete mensual online (4 sesiones): <span className="text-[var(--warm-grey)] font-medium">USD $280</span></p>
+                </div>
+              </div>
             </div>
 
-            {/* Service Card 3 */}
-            <div className="bg-[var(--cream)] p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+            {/* Service Card 3 - Sesión Online */}
+            <div className="bg-[var(--cream)] p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow flex flex-col">
               <div className="w-14 h-14 bg-[var(--moss-green)]/20 rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-7 h-7 text-[var(--olive-green)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h3 className="font-[var(--font-playfair)] font-semibold text-xl text-[var(--warm-grey)] mb-3">
-                Sesiones Online
+              <h3 className="font-[var(--font-playfair)] font-semibold text-xl text-[var(--warm-grey)] mb-4">
+                Sesión Online
               </h3>
-              <p className="text-[var(--warm-grey-light)] text-sm leading-relaxed">
-                Terapia virtual desde la comodidad de tu hogar. Misma calidad y
-                confidencialidad que las sesiones presenciales.
+              <p className="text-[var(--warm-grey-light)] text-sm leading-relaxed flex-1">
+                Accede a tus sesiones desde cualquier lugar con conexión a internet, ahorrando tiempo y desplazamientos. Ideal para personas con agendas apretadas, movilidad reducida o que viven en zonas geográficas con difícil acceso a servicios de salud mental. La terapia online te brinda la oportunidad de recibir apoyo psicológico sin importar dónde te encuentres.
               </p>
+              <div className="mt-6 pt-6 border-t border-[var(--sand-beige)]">
+                <p className="text-[var(--olive-green)] font-semibold text-sm">
+                  Misma calidad y confidencialidad que las sesiones presenciales.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -481,7 +504,7 @@ export default function Home() {
                     id="wa-message"
                     value={waMessage}
                     onChange={(e) => setWaMessage(e.target.value)}
-                    placeholder={"Indica tu vía de contacto preferida (WhatsApp, telefónico, videollamada) y si prefieres consulta breve de 15 min o sesión inicial de 30 min."}
+                    placeholder={"Indica tu vía de contacto preferida (WhatsApp, telefónico, videollamada) y si prefieres la sesión informativa de 30 minutos o agendar directamente las sesiones regulares."}
                     rows={3}
                     className="w-full h-[calc(100%-2rem)] min-h-[80px] px-4 py-3 rounded-xl border border-[var(--warm-grey-lighter)] bg-[var(--sand-beige)]/30 text-[var(--warm-grey)] placeholder:text-[var(--warm-grey-light)]/50 focus:outline-none focus:ring-2 focus:ring-[var(--olive-green)]/30 focus:border-[var(--olive-green)] transition-all resize-none"
                   />
@@ -578,93 +601,65 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Booking Section with Cal.com */}
+      {/* Booking Section */}
       <section id="agendar" className="py-24 bg-[var(--linen)]">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
             <p className="text-[var(--moss-green)] text-sm tracking-widest uppercase mb-4">
               Da el primer paso
             </p>
-            <h2 className="font-[var(--font-playfair)] font-semibold text-3xl md:text-4xl text-[var(--warm-grey)] mb-4">
+            <h2 className="font-[var(--font-playfair)] font-semibold text-3xl md:text-4xl text-[var(--warm-grey)] mb-6">
               Agenda tu Cita
             </h2>
-            <p className="text-[var(--warm-grey-light)] max-w-lg mx-auto">
-              Elige el tipo de sesión y el horario que mejor se adapte a ti.
-              La primera sesión es una conversación para conocernos.
+            <div className="text-[var(--warm-grey-light)] max-w-2xl mx-auto space-y-4 text-sm md:text-base leading-relaxed">
+              <p>
+                Elige el tipo de sesión y el horario que mejor se adapte a ti.
+              </p>
+              <p>
+                Te invito a reservar una <strong className="text-[var(--warm-grey)]">cita informativa</strong>, un primer espacio de encuentro donde podremos conversar con calma, conocer tu motivo de consulta y valorar juntas/os cómo puedo acompañarte en tu proceso.
+              </p>
+              <p>
+                Este espacio está pensado para que puedas resolver tus dudas, sentirte escuchado/a y tomar una decisión con mayor claridad y tranquilidad.
+              </p>
+            </div>
+          </div>
+
+          {/* Session Info Card */}
+          <div className="bg-white rounded-3xl shadow-lg p-8 md:p-10 max-w-xl mx-auto text-center mb-10">
+            <div className="w-16 h-16 bg-[var(--moss-green)]/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <svg className="w-8 h-8 text-[var(--olive-green)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 className="font-[var(--font-playfair)] font-semibold text-xl text-[var(--warm-grey)] mb-2">
+              Cita Informativa
+            </h3>
+            <p className="text-[var(--moss-green)] font-medium mb-4">
+              Duración: 20–30 minutos
+            </p>
+            <p className="text-3xl font-semibold text-[var(--olive-green)] mb-6">
+              USD $20
+            </p>
+            <p className="text-[var(--warm-grey-light)] text-sm leading-relaxed mb-6">
+              Ponte en contacto y da el primer paso hacia tu bienestar emocional, en un entorno de respeto, confidencialidad y cuidado.
+            </p>
+            <p className="text-[var(--warm-grey-light)] text-xs">
+              Horarios disponibles: 16h00 a 20h00
             </p>
           </div>
 
-          {/* Session Type Selector */}
-          <div className="flex justify-center gap-4 mb-8">
-            <button
-              onClick={() => setSelectedDuration("15min")}
-              className={`px-6 py-3 rounded-full text-sm font-medium transition-all ${
-                selectedDuration === "15min"
-                  ? "bg-[var(--olive-green)] text-white shadow-md"
-                  : "bg-white text-[var(--warm-grey)] hover:bg-[var(--sand-beige)]"
-              }`}
-            >
-              <span className="flex items-center gap-2">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                15 minutos
-              </span>
-              <span className="text-xs opacity-75 block mt-1">Consulta breve</span>
-            </button>
-            <button
-              onClick={() => setSelectedDuration("30min")}
-              className={`px-6 py-3 rounded-full text-sm font-medium transition-all ${
-                selectedDuration === "30min"
-                  ? "bg-[var(--olive-green)] text-white shadow-md"
-                  : "bg-white text-[var(--warm-grey)] hover:bg-[var(--sand-beige)]"
-              }`}
-            >
-              <span className="flex items-center gap-2">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                30 minutos
-              </span>
-              <span className="text-xs opacity-75 block mt-1">Sesión inicial</span>
-            </button>
-          </div>
-
-          {/* Cal.com Embed Container - cropped to hide branding */}
-          <div
-            className="bg-white rounded-3xl shadow-lg overflow-hidden relative"
-            style={{ height: "580px" }}
-          >
-            <iframe
-              src={calUrl}
-              className="w-full border-0 absolute top-0 left-0"
-              style={{
-                height: "700px",
-              }}
-              title="Agendar cita"
-              allow="payment"
-            />
-            {/* Overlay to cover bottom branding */}
-            <div
-              className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white via-white to-transparent pointer-events-none"
-            />
-          </div>
-
-          {/* Alternative contact */}
-          <div className="text-center mt-8">
-            <p className="text-[var(--warm-grey-light)] text-sm mb-4">
-              ¿Prefieres agendar por otro medio?
-            </p>
+          {/* Contact CTA */}
+          <div className="text-center">
             <a
-              href="https://wa.me/1234567890"
+              href="https://wa.me/1234567890?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20informativa."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[var(--olive-green)] hover:text-[var(--olive-green-hover)] transition-colors"
+              className="inline-flex items-center gap-3 bg-[var(--olive-green)] text-white px-8 py-4 rounded-full text-base font-medium hover:bg-[var(--olive-green-hover)] transition-all hover:shadow-lg shadow-md"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
               </svg>
-              Escríbeme por WhatsApp
+              Agendar por WhatsApp
             </a>
           </div>
         </div>
