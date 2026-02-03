@@ -201,6 +201,7 @@ export default function Home() {
             fill
             sizes="100vw"
             quality={100}
+            unoptimized
             className="object-cover object-top md:hidden"
             priority
           />
