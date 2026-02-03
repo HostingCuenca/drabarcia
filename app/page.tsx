@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import heroImg from "./heroimagen.png";
-import heroMobile from "./heromovil.png";
 
 export default function Home() {
   const [selectedDuration, setSelectedDuration] = useState<"15min" | "30min">("30min");
@@ -193,16 +192,16 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section id="inicio" className="relative min-h-screen flex items-end pb-12 md:pb-0 md:items-center">
+      <section id="inicio" className="relative min-h-screen flex items-end md:items-center">
         {/* Background Image — mobile: heromovil, desktop: heroimagen1 */}
         <div className="absolute inset-0 z-0">
           <Image
-            src={heroMobile}
+            src="/heromovil.png"
             alt="Dra. Barcia - Psicóloga Clínica en su consultorio"
             fill
             sizes="100vw"
             quality={100}
-            className="object-cover object-center md:hidden"
+            className="object-cover object-top md:hidden"
             priority
           />
           <Image
@@ -214,33 +213,41 @@ export default function Home() {
             className="object-cover object-center hidden md:block"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#e8eaed]/95 via-[#e8eaed]/80 to-[#e8eaed]/40 md:bg-[linear-gradient(to_right,rgba(232,234,237,0.95)_0%,rgba(232,234,237,0.85)_25%,rgba(232,234,237,0.3)_45%,transparent_55%)]"></div>
         </div>
+        {/* Mobile gradient: white from bottom to middle */}
+        <div className="absolute inset-0 z-[1] md:hidden bg-[linear-gradient(to_top,white_0%,rgba(255,255,255,0.95)_25%,rgba(255,255,255,0.7)_40%,transparent_50%)]"></div>
+        {/* Desktop gradient: left side */}
+        <div className="absolute inset-0 z-[1] hidden md:block bg-[linear-gradient(to_right,rgba(232,234,237,0.95)_0%,rgba(232,234,237,0.85)_25%,rgba(232,234,237,0.3)_45%,transparent_55%)]"></div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-6xl mx-auto px-6 py-32 w-full">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 pb-8 pt-24 md:py-32 w-full">
           <div className="max-w-xl">
-            <div className="space-y-6">
-              <p className="text-[var(--moss-green)] text-sm tracking-widest uppercase font-medium">
+            <div className="space-y-4 md:space-y-6">
+              <span className="inline-block bg-[var(--olive-green)] md:bg-transparent text-white md:text-[var(--moss-green)] text-sm tracking-widest uppercase font-medium px-4 py-1.5 md:px-0 md:py-0 rounded-full">
                 Psicóloga Clínica
-              </p>
-              <h1 className="font-[var(--font-playfair)] font-semibold text-4xl md:text-5xl lg:text-6xl text-[var(--warm-grey)] leading-tight">
+              </span>
+              <h1 className="font-[var(--font-playfair)] font-semibold text-3xl md:text-5xl lg:text-6xl text-[var(--warm-grey)] leading-tight">
                 Tu bienestar emocional es mi prioridad
               </h1>
-              <p className="text-[var(--warm-grey-light)] text-base md:text-lg leading-relaxed max-w-lg">
+              {/* Paragraph hidden on mobile, shown on desktop */}
+              <p className="hidden md:block text-[var(--warm-grey-light)] text-base md:text-lg leading-relaxed max-w-lg">
                 Te acompaño en un proceso de autoconocimiento y crecimiento personal, en un espacio seguro, cálido y sin juicios. La terapia es un camino de transformación: cada sesión te acerca a una vida más consciente, equilibrada y plena, promoviendo cambios reales y duraderos.
               </p>
+              {/* Shorter version for mobile */}
+              <p className="md:hidden text-[var(--warm-grey-light)] text-sm leading-relaxed">
+                Te acompaño en un espacio seguro y cálido hacia tu bienestar emocional.
+              </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 mt-8">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-6 md:mt-8">
               <button
                 onClick={() => scrollToSection("agendar")}
-                className="bg-[var(--olive-green)] text-white px-8 py-4 rounded-full text-base hover:bg-[var(--olive-green-hover)] transition-all hover:shadow-lg shadow-md"
+                className="bg-[var(--olive-green)] text-white px-6 md:px-8 py-3 md:py-4 rounded-full text-sm md:text-base hover:bg-[var(--olive-green-hover)] transition-all hover:shadow-lg shadow-md"
               >
                 Agenda tu primera sesión
               </button>
               <button
                 onClick={() => scrollToSection("sobre-mi")}
-                className="border-2 border-[var(--warm-grey-lighter)] text-[var(--warm-grey)] px-8 py-4 rounded-full text-base hover:border-[var(--olive-green)] hover:text-[var(--olive-green)] transition-colors bg-white/50 backdrop-blur-sm"
+                className="border-2 border-[var(--warm-grey-lighter)] text-[var(--warm-grey)] px-6 md:px-8 py-3 md:py-4 rounded-full text-sm md:text-base hover:border-[var(--olive-green)] hover:text-[var(--olive-green)] transition-colors bg-white/50 backdrop-blur-sm"
               >
                 Conoce más
               </button>
