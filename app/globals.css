@@ -4,17 +4,32 @@
   /* Organic Calm Color Palette */
   --sand-beige: #F5F0E8;
   --sand-beige-dark: #EDE6D9;
-  --olive-green: #6B7B5E;
+  --olive-green: #647257;             /* 4.01 -> 4.53 sobre los fondos claros */
   --olive-green-hover: #5A6A4F;
   --moss-green: #8B9E7C;
   --cream: #FAF8F5;
   --linen: #F9F6F1;
   --warm-grey: #5C5A56;
-  --warm-grey-light: #8A8680;
-  --warm-grey-lighter: #B5B1AB;
+  --warm-grey-light: #716D68;         /* 3.19 -> 4.53: es el color de casi todo el texto */
+  --warm-grey-lighter: #908A81;       /* 2.13 -> 3.42: bordes de inputs (WCAG pide 3:1) */
 
   --background: var(--sand-beige);
   --foreground: var(--warm-grey);
+
+  /* Ancho del sitio: 80% del viewport, con un piso para que no se
+     angoste en pantallas medianas. Cambiar aqui afecta a todo el sitio. */
+  --shell-width: 80%;
+  --shell-floor: 84rem;  /* 1344px: nunca menos que esto en desktop */
+  --shell-pad: 1.5rem;   /* margen lateral en movil */
+  --prose-max: 65ch;    /* medida legible para parrafos largos */
+}
+
+@media (min-width: 1024px) {
+  :root { --shell-pad: 2.5rem; }
+}
+
+@media (min-width: 1536px) {
+  :root { --shell-pad: 3.5rem; }
 }
 
 @theme inline {
@@ -32,6 +47,24 @@
   --color-warm-grey-lighter: var(--warm-grey-lighter);
   --font-sans: var(--font-quicksand);
   --font-display: var(--font-playfair);
+}
+
+@layer components {
+  /* Contenedor unico de todas las secciones */
+  .shell {
+    /* 80% del viewport, nunca por debajo del piso, y en movil el ancho
+       completo menos el margen lateral. */
+    width: min(
+      100% - 2 * var(--shell-pad),
+      max(var(--shell-width), var(--shell-floor))
+    );
+    margin-inline: auto;
+  }
+
+  /* Limita la longitud de linea aunque el shell crezca */
+  .prose-measure {
+    max-width: var(--prose-max);
+  }
 }
 
 body {
@@ -73,9 +106,4 @@ html {
 ::selection {
   background-color: rgba(107, 123, 94, 0.3);
   color: var(--warm-grey);
-}
-
-/* Cal.com embed adjustments */
-iframe[title="Agendar cita"] {
-  border-radius: 1rem;
 }
