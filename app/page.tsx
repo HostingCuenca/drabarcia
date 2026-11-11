@@ -720,7 +720,7 @@ export default function Home() {
                     Reconocer que no tiene que sobrellevar todo en soledad es el verdadero punto de partida. Buscar apoyo terapéutico no significa debilidad; es la decisión consciente de priorizar su tranquilidad, comprender lo que siente y brindarse el espacio seguro que merece para sanar.
                   </p>
                   <p>
-                    Dar ese primer paso suele generar incertidumbre, pero atender su salud emocional es el mayor acto de cuidado hacia usted.
+                    Tomar la iniciativa de iniciar su proceso es permitirse hacer una pausa, ordenar sus emociones y reencontrarse con la calma en un entorno cálido, profesional y libre de juicios.
                   </p>
                 </div>
                 <p className="text-[var(--warm-grey-light)] text-sm">
