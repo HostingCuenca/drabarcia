@@ -6,6 +6,7 @@ import "./globals.css";
 
 const META_PIXEL_ID = "1100919259049411";
 const GTM_ID = "GTM-WHTZB92Z";
+const GOOGLE_ADS_ID = "AW-17950468449";
 
 const quicksand = Quicksand({
   variable: "--font-quicksand",
@@ -76,7 +77,7 @@ const jsonLd = {
     "Psicóloga clínica con más de 20 años de experiencia. Terapia online individual y de pareja, con enfoque humanista e integrativo.",
   email: CONTACT_EMAIL,
   telephone: `+${WHATSAPP_NUMBER}`,
-  priceRange: "$20 - $100",
+  priceRange: "$80 - $100",
   areaServed: [
     { "@type": "Country", name: "Ecuador" },
     { "@type": "Place", name: "Atención online internacional" },
@@ -114,8 +115,6 @@ const jsonLd = {
       {
         "@type": "Offer",
         itemOffered: { "@type": "Service", name: "Cita informativa online" },
-        price: "20",
-        priceCurrency: "USD",
       },
     ],
   },
@@ -159,6 +158,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         {/* End Google Tag Manager */}
+        {/* Google Ads (etiqueta de Google). El documento traía gtm.js?id=AW-…,
+            que no carga nada: una etiqueta AW- va por gtag/js y necesita su config. */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads" strategy="afterInteractive">
+          {`
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GOOGLE_ADS_ID}');
+          `}
+        </Script>
+        {/* End Google Ads */}
         {/* Meta Pixel Code */}
         <Script id="meta-pixel" strategy="afterInteractive">
           {`
