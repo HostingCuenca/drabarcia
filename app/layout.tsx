@@ -77,7 +77,6 @@ const jsonLd = {
     "Psicóloga clínica con más de 20 años de experiencia. Terapia online individual y de pareja, con enfoque humanista e integrativo.",
   email: CONTACT_EMAIL,
   telephone: `+${WHATSAPP_NUMBER}`,
-  priceRange: "$80 - $100",
   areaServed: [
     { "@type": "Country", name: "Ecuador" },
     { "@type": "Place", name: "Atención online internacional" },
@@ -103,14 +102,10 @@ const jsonLd = {
       {
         "@type": "Offer",
         itemOffered: { "@type": "Service", name: "Terapia individual online" },
-        price: "80",
-        priceCurrency: "USD",
       },
       {
         "@type": "Offer",
         itemOffered: { "@type": "Service", name: "Terapia de pareja online" },
-        price: "100",
-        priceCurrency: "USD",
       },
       {
         "@type": "Offer",

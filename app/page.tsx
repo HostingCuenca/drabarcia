@@ -357,12 +357,9 @@ export default function Home() {
                 La terapia individual es un espacio de confianza y acompañamiento, donde trabajamos de manera conjunta en tu bienestar emocional y desarrollo personal. A través del proceso terapéutico podrás comprender mejor tus emociones, pensamientos y comportamientos, así como identificar aquello que hoy te genera malestar.
               </p>
               <div className="mt-6 pt-6 border-t border-[var(--sand-beige)]">
-                <p className="text-[var(--warm-grey)] font-semibold text-base mb-2">Honorarios</p>
-                <div className="space-y-1 text-base text-[var(--warm-grey-light)]">
-                  <p>Online nacional: <span className="text-[var(--warm-grey)] font-medium">USD $80</span></p>
-                  <p>Online internacional: <span className="text-[var(--warm-grey)] font-medium">USD $80</span> + cargos aplicables</p>
-                  <p className="pt-1">Terapia continua: acompañamiento preferencial desde 4, 8 y 12 meses con descuentos.</p>
-                </div>
+                <p className="text-base text-[var(--warm-grey-light)]">
+                  Terapia continua: acompañamiento preferencial desde 4, 8 y 12 meses con descuentos.
+                </p>
                 <a
                   href={whatsappLink()}
                   onClick={() => trackMeta("Contact", { content_name: "Terapia Individual" })}
@@ -393,12 +390,9 @@ export default function Home() {
                 Espacio terapéutico para parejas que quieran aprender a resolver sus conflictos, mejorar su comunicación, fortalecer su conexión emocional y, en definitiva, adquirir herramientas para conseguir una relación más sana y satisfactoria.
               </p>
               <div className="mt-6 pt-6 border-t border-[var(--sand-beige)]">
-                <p className="text-[var(--warm-grey)] font-semibold text-base mb-2">Honorarios</p>
-                <div className="space-y-1 text-base text-[var(--warm-grey-light)]">
-                  <p>Online nacional: <span className="text-[var(--warm-grey)] font-medium">USD $100</span></p>
-                  <p>Online internacional: <span className="text-[var(--warm-grey)] font-medium">USD $100</span> + cargos aplicables</p>
-                  <p className="pt-1">Terapia continua: acompañamiento preferencial desde 4, 8 y 12 meses con descuentos.</p>
-                </div>
+                <p className="text-base text-[var(--warm-grey-light)]">
+                  Terapia continua: acompañamiento preferencial desde 4, 8 y 12 meses con descuentos.
+                </p>
                 <a
                   href={whatsappLink()}
                   onClick={() => trackMeta("Contact", { content_name: "Terapia de Pareja" })}
