@@ -139,12 +139,15 @@ export default function Home() {
             >
               Contacto
             </button>
-            <button
-              onClick={() => scrollToSection("agendar")}
+            <a
+              href={whatsappLink()}
+              onClick={() => trackMeta("Schedule", { content_name: "Menú: Agendar Cita" })}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-[var(--olive-green)] text-white px-6 py-2.5 rounded-full text-base hover:bg-[var(--olive-green-hover)] transition-colors"
             >
               Agendar Cita
-            </button>
+            </a>
           </div>
           {/* Mobile menu button */}
           <button
@@ -190,12 +193,15 @@ export default function Home() {
             >
               Contacto
             </button>
-            <button
-              onClick={() => { scrollToSection("agendar"); setMenuOpen(false); }}
-              className="w-full bg-[var(--olive-green)] text-white py-3 rounded-full text-base hover:bg-[var(--olive-green-hover)] transition-colors mt-2"
+            <a
+              href={whatsappLink()}
+              onClick={() => { trackMeta("Schedule", { content_name: "Menú móvil: Agendar Cita" }); setMenuOpen(false); }}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-center w-full bg-[var(--olive-green)] text-white py-3 rounded-full text-base hover:bg-[var(--olive-green-hover)] transition-colors mt-2"
             >
               Agendar Cita
-            </button>
+            </a>
           </div>
         )}
       </nav>
@@ -248,12 +254,15 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-6 md:mt-8">
-              <button
-                onClick={() => scrollToSection("agendar")}
-                className="bg-[var(--olive-green)] text-white px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg hover:bg-[var(--olive-green-hover)] transition-all hover:shadow-lg shadow-md"
+              <a
+                href={whatsappLink()}
+                onClick={() => trackMeta("Schedule", { content_name: "Portada: Agenda tu primera sesión" })}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-center bg-[var(--olive-green)] text-white px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg hover:bg-[var(--olive-green-hover)] transition-all hover:shadow-lg shadow-md"
               >
                 Agenda tu primera sesión
-              </button>
+              </a>
               <button
                 onClick={() => scrollToSection("sobre-mi")}
                 className="border-2 border-[var(--warm-grey-lighter)] text-[var(--warm-grey)] px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg hover:border-[var(--olive-green)] hover:text-[var(--olive-green)] transition-colors bg-white/50 backdrop-blur-sm"
@@ -658,26 +667,6 @@ export default function Home() {
       {/* Booking Section */}
       <section id="agendar" className="py-24 bg-[var(--linen)]">
         <div className="shell">
-          <div className="text-center mb-12">
-            <p className="text-[var(--olive-green)] text-sm tracking-widest uppercase mb-4">
-              Da el primer paso
-            </p>
-            <h2 className="font-[var(--font-playfair)] font-semibold text-3xl md:text-4xl text-[var(--warm-grey)] mb-6">
-              Agenda tu Cita
-            </h2>
-            <div className="text-[var(--warm-grey-light)] max-w-2xl mx-auto space-y-4 text-base md:text-lg leading-relaxed">
-              <p>
-                Elige el tipo de sesión y el horario que mejor se adapte a ti.
-              </p>
-              <p>
-                Te invito a reservar una <strong className="text-[var(--warm-grey)]">cita informativa</strong>, un primer espacio de encuentro donde podremos conversar con calma, conocer tu motivo de consulta y valorar juntas/os cómo puedo acompañarte en tu proceso.
-              </p>
-              <p>
-                Este espacio está pensado para que puedas resolver tus dudas, sentirte escuchado/a y tomar una decisión con mayor claridad y tranquilidad.
-              </p>
-            </div>
-          </div>
-
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Image Side */}
             <div className="relative order-2 md:order-1">
@@ -694,36 +683,22 @@ export default function Home() {
               <div className="absolute -z-10 -bottom-4 -left-4 w-full h-full rounded-3xl bg-[var(--moss-green)]/10"></div>
             </div>
 
-            {/* Card Side */}
+            {/* Text Side — ordenado como la portada: título grande, texto, botón */}
             <div className="order-1 md:order-2">
-              {/* Session Info Card */}
-              <div className="bg-white rounded-3xl shadow-lg p-8 md:p-10 text-center mb-8">
-                <div className="w-16 h-16 bg-[var(--moss-green)]/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <svg aria-hidden="true" className="w-8 h-8 text-[var(--olive-green)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="font-[var(--font-playfair)] font-semibold text-xl text-[var(--warm-grey)] mb-2">
-                  Cita Informativa
-                </h3>
-                <p className="text-[var(--olive-green)] font-medium mb-4">
-                  Duración: 20–30 minutos
+              <h2 className="font-[var(--font-playfair)] font-semibold text-3xl md:text-5xl lg:text-6xl text-[var(--olive-green)] leading-tight mb-6 md:mb-8">
+                Un espacio pensado para ti
+              </h2>
+              <div className="text-[var(--warm-grey-light)] text-base md:text-lg leading-relaxed space-y-4 mb-8">
+                <p>
+                  Reconocer que no tiene que sobrellevar todo en soledad es el verdadero punto de partida. Buscar apoyo terapéutico no significa debilidad; es la decisión consciente de priorizar su tranquilidad, comprender lo que siente y brindarse el espacio seguro que merece para sanar.
                 </p>
-                <div className="text-[var(--warm-grey-light)] text-base leading-relaxed mb-6 space-y-3">
-                  <p>
-                    Reconocer que no tiene que sobrellevar todo en soledad es el verdadero punto de partida. Buscar apoyo terapéutico no significa debilidad; es la decisión consciente de priorizar su tranquilidad, comprender lo que siente y brindarse el espacio seguro que merece para sanar.
-                  </p>
-                  <p>
-                    Tomar la iniciativa de iniciar su proceso es permitirse hacer una pausa, ordenar sus emociones y reencontrarse con la calma en un entorno cálido, profesional y libre de juicios.
-                  </p>
-                </div>
-                <p className="text-[var(--warm-grey-light)] text-sm">
-                  Horarios disponibles: 16h00 a 20h00
+                <p>
+                  Tomar la iniciativa de iniciar su proceso es permitirse hacer una pausa, ordenar sus emociones y reencontrarse con la calma en un entorno cálido, profesional y libre de juicios.
                 </p>
               </div>
 
               {/* Contact CTA */}
-              <div className="text-center">
+              <div>
                 <a
                   href={whatsappLink()}
                   onClick={() => trackMeta("Schedule", { content_name: "Cita informativa" })}
