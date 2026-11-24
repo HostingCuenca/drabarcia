@@ -242,12 +242,12 @@ export default function Home() {
         <div className="relative z-10 shell pb-8 pt-24 md:py-32">
           <div className="max-w-xl">
             <div className="space-y-4 md:space-y-6">
-              <span className="inline-block bg-[var(--olive-green)] md:bg-transparent text-white md:text-[var(--olive-green)] text-sm tracking-widest uppercase font-medium px-4 py-1.5 md:px-0 md:py-0 rounded-full">
+              <h1 className="inline-block bg-[var(--olive-green)] md:bg-transparent text-white md:text-[var(--olive-green)] text-sm tracking-widest uppercase font-medium px-4 py-1.5 md:px-0 md:py-0 rounded-full">
                 Psicóloga Clínica Online
-              </span>
-              <h1 className="font-[var(--font-playfair)] font-semibold text-3xl md:text-5xl lg:text-6xl text-[var(--warm-grey)] leading-tight">
-                Tu bienestar emocional es mi prioridad
               </h1>
+              <span className="block font-[var(--font-playfair)] font-semibold text-3xl md:text-5xl lg:text-6xl text-[var(--warm-grey)] leading-tight">
+                Tu bienestar emocional es mi prioridad
+              </span>
               {/* Paragraph hidden on mobile, shown on desktop */}
               <p className="hidden md:block text-[var(--warm-grey-light)] text-lg md:text-xl leading-relaxed max-w-lg">
                 Te acompaño en un proceso de autoconocimiento y crecimiento personal, en un espacio seguro, cálido y sin juicios. La terapia es un camino de transformación: cada sesión te acerca a una vida más consciente, equilibrada y plena, promoviendo cambios reales y duraderos.
