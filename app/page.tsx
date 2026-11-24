@@ -111,9 +111,13 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--sand-beige)]/90 backdrop-blur-sm border-b border-[var(--olive-green)]/15">
         <div className="shell py-4 flex items-center justify-between">
-          <div className="font-[var(--font-playfair)] font-semibold text-2xl text-[var(--warm-grey)] tracking-wide">
-            Dra. Barcia
-          </div>
+          <a href="#inicio" className="flex items-center">
+            <img
+              src="/assets/LOGO-DENISSE-BARCIA.svg"
+              alt="Dra. Denisse Barcia - Psicología Clínica"
+              className="h-11 md:h-12 w-auto object-contain"
+            />
+          </a>
           <div className="hidden md:flex items-center gap-6 lg:gap-8">
             <button
               onClick={() => scrollToSection("inicio")}
